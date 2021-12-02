@@ -1,0 +1,2 @@
+problem,method,tour length,optimal solution,gap,time to solve
+./problems/eil76.tsp,"initialized with random, improved with two_opt",601.0,538.0,11.71,0.051

@@ -33,6 +33,7 @@ class ProblemInstance:
       self.points[i, 2] = line_i[2]
 
     self.create_dist_matrix()
+
     if self.file_name in ['../problems/eil76.tsp', '../problems/kroA100.tsp']:
       self.exist_opt = True
       file_object = open(self.file_name.replace('.tsp', '.opt.tour'))
