@@ -24,8 +24,8 @@ public:
 
   vector<string> lines;
   vector<int> optimal_tour;
-  vector<vector<int> > points;
-  vector<vector<int> > distance_matrix;
+  vector<vector<float> > points;
+  vector<vector<float> > distance_matrix;
 
 
   /**
@@ -85,13 +85,13 @@ private:
    * @param n_points The total number of points
    * @return A matrix containing the points
    */
-  vector<vector<int> > parse_points(vector<string> lines, int n_points) {
-    vector<vector<int> > points(n_points, vector<int>(3));
+  vector<vector<float> > parse_points(vector<string> lines, int n_points) {
+    vector<vector<float> > points(n_points, vector<float>(3));
     
     for (int i = 7; i < n_points + 7; i++) {
-      points[i-7][0] = stoi(split(lines[i], " ")[0]);
-      points[i-7][1] = stoi(split(lines[i], " ")[1]);
-      points[i-7][2] = stoi(split(lines[i], " ")[2]);
+      points[i-7][0] = stof(split(lines[i], " ")[0]);
+      points[i-7][1] = stof(split(lines[i], " ")[1]);
+      points[i-7][2] = stof(split(lines[i], " ")[2]);
     }
 
     return points;
@@ -105,8 +105,8 @@ private:
    * @param n_points The total number of points
    * @return A matrix containing the distance matrix
    */
-  vector<vector<int> > compute_distance_matrix(vector<vector<int> > points, int n_points) {
-    vector<vector<int> > distance_matrix(n_points, vector<int>(n_points));
+  vector<vector<float> > compute_distance_matrix(vector<vector<float> > points, int n_points) {
+    vector<vector<float> > distance_matrix(n_points, vector<float>(n_points));
 
     for (int i = 0; i < n_points; i++) {
       for (int j = i; j < n_points; j++) {
@@ -114,7 +114,7 @@ private:
       }
     }
 
-    vector<vector<int> > transposed_matrix = m_transpose(distance_matrix);
+    vector<vector<float> > transposed_matrix = m_transpose(distance_matrix);
     distance_matrix = m_sum(distance_matrix, transposed_matrix);
 
     return distance_matrix;

@@ -18,6 +18,11 @@ def nearest_neighbor(instance_, starting_node=0):
     tour = [node]
 
     for _ in range(n - 1):
+        for i in np.argsort(dist_matrix[node]):
+            print(str(i).replace('.0', ''), end=' ')
+        
+        print('\n\n\n')
+
         for new_node in np.argsort(dist_matrix[node]):
             if new_node not in tour:
                 tour.append(new_node)

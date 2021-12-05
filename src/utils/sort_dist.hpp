@@ -1,18 +1,19 @@
-#include <iostream>
 #include <vector>
 #include <numeric>
+#include <iostream>
 #include <algorithm>
 
 using namespace std;
 
-vector<int> argsort(vector<int> &array) {
-  vector<int> indices(array.size());
+vector<int> argsort(vector<int> & nums) {
+  vector<int> idx(nums.size());
+  iota(idx.begin(), idx.end(), 0);
 
-  iota(indices.begin(), indices.end(), 0);
-  sort(indices.begin(), indices.end(),
-    [&array](int left, int right) -> bool {
-        return array[left] < array[right];
-    });
+  const auto function = [&nums](int i1, int i2) noexcept -> bool {
+    return nums[i1] < nums[i2];
+  };
 
-  return indices;
+  sort(idx.begin(), idx.end(), function);
+  
+  return idx;
 }

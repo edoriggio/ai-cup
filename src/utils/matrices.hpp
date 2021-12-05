@@ -3,8 +3,8 @@
 using namespace std;
 
 
-vector<vector<int> > m_transpose(vector<vector<int> > b) {
-    vector<vector<int> > trans_vec(b[0].size(), vector<int>(b[0].size()));
+vector<vector<float> > m_transpose(vector<vector<float> > b) {
+    vector<vector<float> > trans_vec(b[0].size(), vector<float>(b[0].size()));
 
     for (int i = 0; i < b.size(); i++) {
       for (int j = 0; j < b[i].size(); j++) {
@@ -19,8 +19,8 @@ vector<vector<int> > m_transpose(vector<vector<int> > b) {
 }
 
 
-vector<vector<int> > m_sum(vector<vector<int> > a, vector<vector<int> > b) {
-  vector<vector<int> > result(a[0].size(), vector<int>(a[0].size()));
+vector<vector<float> > m_sum(vector<vector<float> > a, vector<vector<float> > b) {
+  vector<vector<float> > result(a[0].size(), vector<float>(a[0].size()));
 
   for (int i = 0; i < a.size(); i++) {
     for (int j = 0; j < a[i].size(); j++) {

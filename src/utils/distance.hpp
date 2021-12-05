@@ -11,7 +11,7 @@ using namespace std;
  * @param p2 The second point
  * @return The Euclidean distance
  */
-int distance(vector<int> p1, vector<int> p2) {
+int distance(vector<float> p1, vector<float> p2) {
   int x1 = p1[1];
   int y1 = p1[2];
   int x2 = p2[1];

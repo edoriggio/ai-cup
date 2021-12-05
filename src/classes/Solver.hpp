@@ -1,8 +1,11 @@
 #include <ctime>
 #include <vector>
 
+#include "../utils/check_in.hpp"
+
 #include "../solvers/two_opt.hpp"
-#include "../solvers/nearest_neighbors.hpp"
+#include "../solvers/ant_colony.hpp"
+
 
 using namespace std;
 
@@ -29,15 +32,15 @@ private:
     clock_t start = clock();
 
     cout << endl;
-    cout << "### Solving problem with ['best_nearest_neighbors'] ###" << endl;
+    cout << "### Solving problem with ['ant_colony'] ###" << endl;
 
-    vector<int> solution = best_nearest_neighbors(this->problem);
+    vector<int> solution = ant_colony(this->problem);
     // solution = two_opt(solution, this->problem);
 
-    // if (!check_validity(solution)) {
-    //   cout << "ERROR: Solution is not valid" << endl;
-    //   exit(1);
-    // }
+    if (!check_validity(solution)) {
+      cout << "ERROR: Solution is not valid" << endl;
+      exit(1);
+    }
 
     this->duration = (clock() - start) / (double) CLOCKS_PER_SEC;
     this->solved = true;
