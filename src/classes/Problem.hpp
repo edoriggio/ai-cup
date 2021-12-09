@@ -54,7 +54,7 @@ public:
     cout << "\n\n#############################" << endl;
     cout << "Problem: " << this->name << endl;
     cout << "Number of points: " << this->n_points << endl;
-    cout << "Best solution: " << this->best_solution_len << endl;
+    cout << "Best solution: " << (int)this->best_solution_len << endl;
     cout << "Optimal tour: " << boolalpha << this->exists_optimal << endl;
   }
 

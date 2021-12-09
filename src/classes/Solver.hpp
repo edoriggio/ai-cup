@@ -1,10 +1,12 @@
 #include <ctime>
 #include <vector>
 
+#include "../utils/length.hpp"
 #include "../utils/check_in.hpp"
 
 #include "../solvers/two_opt.hpp"
 #include "../solvers/ant_colony.hpp"
+#include "../solvers/nearest_neighbors.hpp"
 
 
 using namespace std;
@@ -18,9 +20,8 @@ private:
   float duration;
   int found_length;
 
-  bool solved;
   Problem * problem;
-  vector<int> solution;
+  vector<float> solution;
 
 
   /**
@@ -28,14 +29,16 @@ private:
    * 
    * @return The solution vector of the problem
    */
-  vector<int> compute_solution() {
+  vector<float> compute_solution() {
     clock_t start = clock();
 
     cout << endl;
-    cout << "### Solving problem with ['ant_colony'] ###" << endl;
+    // cout << "### Solving problem with ['ant_colony'] ###" << endl;
+    cout << "### Solving problem with ['nearest_neighbors', 'two_opt'] ###" << endl;
 
-    vector<int> solution = ant_colony(this->problem);
-    // solution = two_opt(solution, this->problem);
+    // vector<int> solution = ant_colony(this->problem);
+    vector<float> solution = best_nearest_neighbors(this->problem);
+    solution = two_opt(solution, this->problem);
 
     if (!check_validity(solution)) {
       cout << "ERROR: Solution is not valid" << endl;
@@ -43,10 +46,11 @@ private:
     }
 
     this->duration = (clock() - start) / (double) CLOCKS_PER_SEC;
-    this->solved = true;
+    this->found_length = length(solution, this->problem->distance_matrix);
 
     cout << "Solution found in " << this->duration << " seconds" << endl;
-    cout << "Legnth of solution: " << this->problem->best_solution_len << endl;
+    cout << "Legnth of solution: " << this->found_length << endl;
+    cout << "Gap between solutions: " << fixed << setprecision(2) << this->gap() << "%" << endl; 
 
     return solution;
   }
@@ -59,7 +63,7 @@ private:
    * @return true If the solution is valid
    * @return false If the solution is not valid
    */
-  bool check_validity(vector<int> solution) {
+  bool check_validity(vector<float> solution) {
     int sum = 0;
 
     for (int i = 0; i < this->problem->n_points; i++) {
@@ -67,7 +71,24 @@ private:
     }
 
     return sum == this->problem->n_points;
-  } 
+  }
+  
+
+  /**
+   * @brief Compute gap
+   * 
+   * Compute the gap between the best known solution and the solution from
+   * the current algorithm.
+   * 
+   * @return The gap
+   */
+  float gap() {
+    float num = this->found_length - this->problem->best_solution_len;
+    float den = this->problem->best_solution_len;
+
+    return (num / den) * 100.0;
+  }
+
 
 public:
   /**
@@ -79,7 +100,6 @@ public:
     this->duration = 0;
     this->found_length = 0;
 
-    this->solved = false;
     this->problem = problem;
     this->solution = compute_solution();
   }
