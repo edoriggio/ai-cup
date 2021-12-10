@@ -34,7 +34,7 @@ private:
 
     cout << endl;
     // cout << "### Solving problem with ['ant_colony'] ###" << endl;
-    cout << "### Solving problem with ['nearest_neighbors', 'two_opt'] ###" << endl;
+    cout << "### Solving problem with ['best_nearest_neighbors', 'two_opt'] ###" << endl;
 
     // vector<int> solution = ant_colony(this->problem);
     vector<float> solution = best_nearest_neighbors(this->problem);
@@ -72,7 +72,7 @@ private:
 
     return sum == this->problem->n_points;
   }
-  
+
 
   /**
    * @brief Compute gap

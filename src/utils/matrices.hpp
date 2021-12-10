@@ -8,8 +8,9 @@ vector<vector<float> > m_transpose(vector<vector<float> > b) {
 
     for (int i = 0; i < b.size(); i++) {
       for (int j = 0; j < b[i].size(); j++) {
-        if (trans_vec[j].size() != b.size())
+        if (trans_vec[j].size() != b.size()) {
           trans_vec[j].resize(b.size());
+        }
 
         trans_vec[j][i] = b[i][j];
       }

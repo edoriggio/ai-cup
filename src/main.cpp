@@ -11,7 +11,7 @@ int main(int argc, char** argv ) {
                              "./problems/ch130.tsp",
                              "./problems/d198.tsp",
                              "./problems/eil76.tsp",
-                            //  "./problems/fl1577.tsp",
+                             "./problems/fl1577.tsp",
                              "./problems/kroA100.tsp",
                              "./problems/lin318.tsp",
                              "./problems/pcb442.tsp",
