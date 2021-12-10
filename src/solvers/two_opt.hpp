@@ -21,8 +21,10 @@ tuple<vector<float>, int> two_opt_step(vector<float> solution, Problem * problem
 
   for (int i = 1; i < solution.size()-2; i++) {
     for (int j = i+1; j < solution.size()-1; j++) {
-      int old_link_len = problem->distance_matrix[new_solution[i]][new_solution[i-1]] + problem->distance_matrix[new_solution[j]][new_solution[j+1]];
-      int new_link_len = problem->distance_matrix[new_solution[j]][new_solution[i-1]] + problem->distance_matrix[new_solution[i]][new_solution[j+1]];
+      int old_link_len = problem->distance_matrix[new_solution[i]][new_solution[i-1]]
+                         + problem->distance_matrix[new_solution[j]][new_solution[j+1]];
+      int new_link_len = problem->distance_matrix[new_solution[j]][new_solution[i-1]]
+                         + problem->distance_matrix[new_solution[i]][new_solution[j+1]];
 
       int gain_value = - old_link_len + new_link_len;
 

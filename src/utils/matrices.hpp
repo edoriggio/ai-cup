@@ -3,6 +3,12 @@
 using namespace std;
 
 
+/**
+ * @brief Computes the transpose of a matrix
+ * 
+ * @param b The matrix to transpose
+ * @return The transposed matrix
+ */
 vector<vector<float> > m_transpose(vector<vector<float> > b) {
     vector<vector<float> > trans_vec(b[0].size(), vector<float>(b[0].size()));
 
@@ -20,6 +26,13 @@ vector<vector<float> > m_transpose(vector<vector<float> > b) {
 }
 
 
+/**
+ * @brief Compute the sum of two matrices
+ * 
+ * @param a The first matrix
+ * @param b The second matrix
+ * @return The resulting matrix
+ */
 vector<vector<float> > m_sum(vector<vector<float> > a, vector<vector<float> > b) {
   vector<vector<float> > result(a[0].size(), vector<float>(a[0].size()));
 
