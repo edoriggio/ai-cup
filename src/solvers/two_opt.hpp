@@ -15,7 +15,12 @@ using namespace std;
  * @return Tuple containing the new solution and the total gain
  */
 tuple<vector<float>, int> two_opt_step(vector<float> solution, Problem * problem) {
-  int tot_gain = 0;
+  int gain = 0;
+
+  int best_i = 1;
+  int best_j = 2;
+
+  bool swapped = false;
 
   vector<float> new_solution = solution;
 
@@ -28,14 +33,18 @@ tuple<vector<float>, int> two_opt_step(vector<float> solution, Problem * problem
 
       int gain_value = - old_link_len + new_link_len;
 
-      if (gain_value < 0) {
-        reverse(new_solution.begin() + i, new_solution.begin() + j + 1);
-        tot_gain += gain_value;
+      if (gain_value < gain) {
+        best_i = i;
+        best_j = j;
+        swapped = true;
+        gain = gain_value;
       }
     }
   }
+
+  reverse(new_solution.begin() + best_i, new_solution.begin() + best_j + 1);
   
-  return make_tuple(new_solution, tot_gain);
+  return make_tuple(new_solution, swapped);
 }
 
 
@@ -49,13 +58,13 @@ tuple<vector<float>, int> two_opt_step(vector<float> solution, Problem * problem
  * @return The optimized solution
  */
 vector<float> two_opt(vector<float> solution, Problem * problem) {
-  int gain = -1;
+  bool swapping = true;
   vector<float> new_solution = solution;
 
-  while (gain < 0) {
+  while (swapping) {
     auto res = two_opt_step(new_solution, problem);
     new_solution = get<0>(res);
-    gain = get<1>(res);
+    swapping = get<1>(res);
   }
 
   return new_solution;

@@ -4,9 +4,9 @@
 #include "../utils/length.hpp"
 #include "../utils/check_in.hpp"
 
+#include "../solvers/two_opt.hpp"
 #include "../solvers/two_dot_five_opt.hpp"
 #include "../solvers/nearest_neighbors.hpp"
-#include "../solvers/simulated_annealing.hpp"
 
 
 using namespace std;
@@ -37,7 +37,6 @@ private:
 
     vector<float> solution = best_nearest_neighbors(this->problem);
     solution = two_dot_five_opt(solution, this->problem);
-    solution = simulated_annealing(solution, this->problem);
 
     if (!check_validity(solution)) {
       cout << "ERROR: Solution is not valid" << endl;
