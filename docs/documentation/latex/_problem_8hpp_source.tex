@@ -1,0 +1,127 @@
+\hypertarget{_problem_8hpp_source}{}\doxysection{Problem.\+hpp}
+\label{_problem_8hpp_source}\index{src/classes/Problem.hpp@{src/classes/Problem.hpp}}
+\mbox{\hyperlink{_problem_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}../utils/split.hpp"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../utils/matrices.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../utils/distance.hpp"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef PROBLEM\_HPP}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define PROBLEM\_HPP}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_problem}{Problem}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_problem_ae55cae2db01283e56a65c2f0c51464a6}{exists\_optimal}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   \textcolor{keywordtype}{string} \mbox{\hyperlink{class_problem_aa75cbf074e7da3ba6ae2d6f19be103e4}{name}};}
+\DoxyCodeLine{20   \textcolor{keywordtype}{string} \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}};}
+\DoxyCodeLine{23   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_problem_af3193cc8a695b81d530576dc888ed3ab}{best\_solution\_len}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   vector<string> \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}};}
+\DoxyCodeLine{26   vector<int> \mbox{\hyperlink{class_problem_a956dbc7df30deb3e59064f73b800cbc6}{optimal\_tour}};}
+\DoxyCodeLine{27   vector<vector<float> > \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}};}
+\DoxyCodeLine{28   vector<vector<float> > \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{36   \mbox{\hyperlink{class_problem_ae6ad2cecaf98600a993538dddd1e6395}{Problem}}(\textcolor{keywordtype}{string} \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}}) \{}
+\DoxyCodeLine{37     this-\/>filename = \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}};}
+\DoxyCodeLine{38     this-\/>lines = \mbox{\hyperlink{class_problem_a97d7796de03814d46dfb57e3df8b5b93}{read\_file}}(\mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     this-\/>name = \mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[0], \textcolor{stringliteral}{"{} : "{}})[1];}
+\DoxyCodeLine{41     this-\/>n\_points = stoi(\mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[3], \textcolor{stringliteral}{"{} : "{}})[1]);}
+\DoxyCodeLine{42     this-\/>best\_solution\_len = stof(\mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[5], \textcolor{stringliteral}{"{} : "{}})[1]);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     this-\/>points = \mbox{\hyperlink{class_problem_a638b88612404e17ba5d0f3fb3043ef29}{parse\_points}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}, this-\/>n\_points);}
+\DoxyCodeLine{45     this-\/>distance\_matrix = \mbox{\hyperlink{class_problem_ac416b3bf669fe47b5eb4dd019b4993bd}{compute\_distance\_matrix}}(this-\/>points, this-\/>n\_points);}
+\DoxyCodeLine{46     this-\/>optimal\_tour = \mbox{\hyperlink{class_problem_af882337719efa237fbe29533fda4465f}{check\_optimal\_tour}}();}
+\DoxyCodeLine{47   \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{53   \textcolor{keywordtype}{void} \mbox{\hyperlink{class_problem_af0ecbe4e398524b72bf141540a24673e}{print\_info}}() \{}
+\DoxyCodeLine{54     cout << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"{}} << endl;}
+\DoxyCodeLine{55     cout << \textcolor{stringliteral}{"{}Problem: "{}} << this-\/>name << endl;}
+\DoxyCodeLine{56     cout << \textcolor{stringliteral}{"{}Number of points: "{}} << this-\/>n\_points << endl;}
+\DoxyCodeLine{57     cout << \textcolor{stringliteral}{"{}Best solution: "{}} << (int)this-\/>best\_solution\_len << endl;}
+\DoxyCodeLine{58     cout << \textcolor{stringliteral}{"{}Optimal tour: "{}} << boolalpha << this-\/>exists\_optimal << endl;}
+\DoxyCodeLine{59   \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{private}:}
+\DoxyCodeLine{68   vector<string> \mbox{\hyperlink{class_problem_a97d7796de03814d46dfb57e3df8b5b93}{read\_file}}(\textcolor{keywordtype}{string} \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}}) \{}
+\DoxyCodeLine{69     ifstream file(\mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}});}
+\DoxyCodeLine{70     vector<string> \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}};}
+\DoxyCodeLine{71     \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{while} (getline(file, line)) \{}
+\DoxyCodeLine{74       \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}.push\_back(line);}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}};}
+\DoxyCodeLine{78   \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{88   vector<vector<float> > \mbox{\hyperlink{class_problem_a638b88612404e17ba5d0f3fb3043ef29}{parse\_points}}(vector<string> \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}) \{}
+\DoxyCodeLine{89     vector<vector<float> > \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}(\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}, vector<float>(3));}
+\DoxyCodeLine{90     }
+\DoxyCodeLine{91     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 7; i < \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}} + 7; i++) \{}
+\DoxyCodeLine{92       \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}[i-\/7][0] = stof(\mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[i], \textcolor{stringliteral}{"{} "{}})[0]);}
+\DoxyCodeLine{93       \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}[i-\/7][1] = stof(\mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[i], \textcolor{stringliteral}{"{} "{}})[1]);}
+\DoxyCodeLine{94       \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}[i-\/7][2] = stof(\mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[i], \textcolor{stringliteral}{"{} "{}})[2]);}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}};}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108   vector<vector<float> > \mbox{\hyperlink{class_problem_ac416b3bf669fe47b5eb4dd019b4993bd}{compute\_distance\_matrix}}(vector<vector<float> > \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}) \{}
+\DoxyCodeLine{109     vector<vector<float> > \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}(\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}, vector<float>(\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}));}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}; i++) \{}
+\DoxyCodeLine{112       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j < \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}; j++) \{}
+\DoxyCodeLine{113         \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[i][j] = \mbox{\hyperlink{distance_8hpp_a59cbf64b08c505477a6ce57aa909ee55}{distance}}(\mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}[i], \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}[j]);}
+\DoxyCodeLine{114       \}}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     vector<vector<float> > transposed\_matrix = \mbox{\hyperlink{matrices_8hpp_a7ab09214a67aa35b24e276ea3a3e2620}{m\_transpose}}(\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}});}
+\DoxyCodeLine{118     \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}} = \mbox{\hyperlink{matrices_8hpp_a8d03a4b7f773ecb71760631052951830}{m\_sum}}(\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}, transposed\_matrix);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}};}
+\DoxyCodeLine{121   \}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{129   vector<int> \mbox{\hyperlink{class_problem_af882337719efa237fbe29533fda4465f}{check\_optimal\_tour}}() \{}
+\DoxyCodeLine{130     vector<int> tour(this-\/>n\_points);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} (this-\/>filename == \textcolor{stringliteral}{"{}./problems/eil76.tsp"{}} || this-\/>filename == \textcolor{stringliteral}{"{}./problems/kroA100.tsp"{}}) \{}
+\DoxyCodeLine{133       this-\/>exists\_optimal = \textcolor{keyword}{true};}
+\DoxyCodeLine{134       }
+\DoxyCodeLine{135       ifstream file(this-\/>filename.replace(this-\/>filename.end()-\/3, this-\/>filename.end(), \textcolor{stringliteral}{"{}opt.tour"{}}));}
+\DoxyCodeLine{136       vector<string> \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}};}
+\DoxyCodeLine{137       \textcolor{keywordtype}{string} line;}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139       \textcolor{keywordflow}{while} (getline(file, line)) \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}.push\_back(line);}
+\DoxyCodeLine{141       \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 6; i < this-\/>n\_points + 6; i++) \{}
+\DoxyCodeLine{144         tour[i-\/6] = stoi(\mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}[i]);}
+\DoxyCodeLine{145       \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147       \textcolor{keywordflow}{return} tour;}
+\DoxyCodeLine{148     \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} vector<int>();}
+\DoxyCodeLine{151   \}}
+\DoxyCodeLine{152 \};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PROBLEM\_HPP}}
+
+\end{DoxyCode}

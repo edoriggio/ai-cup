@@ -1,0 +1,209 @@
+\hypertarget{class_problem}{}\doxysection{Problem Class Reference}
+\label{class_problem}\index{Problem@{Problem}}
+
+
+{\ttfamily \#include $<$Problem.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_problem_ae6ad2cecaf98600a993538dddd1e6395}{Problem}} (string \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}})
+\begin{DoxyCompactList}\small\item\em Contructor of the \mbox{\hyperlink{class_problem}{Problem}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_problem_af0ecbe4e398524b72bf141540a24673e}{print\+\_\+info}} ()
+\begin{DoxyCompactList}\small\item\em Prints the problem info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_problem_ae55cae2db01283e56a65c2f0c51464a6}{exists\+\_\+optimal}} = false
+\item 
+string \mbox{\hyperlink{class_problem_aa75cbf074e7da3ba6ae2d6f19be103e4}{name}}
+\item 
+string \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}}
+\item 
+int \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\+\_\+points}}
+\item 
+float \mbox{\hyperlink{class_problem_af3193cc8a695b81d530576dc888ed3ab}{best\+\_\+solution\+\_\+len}}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}
+\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_problem_a956dbc7df30deb3e59064f73b800cbc6}{optimal\+\_\+tour}}
+\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}
+\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\+\_\+matrix}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_problem_a97d7796de03814d46dfb57e3df8b5b93}{read\+\_\+file}} (string \mbox{\hyperlink{class_problem_aefa9e69bbf3bbce73476f3828beed691}{filename}})
+\begin{DoxyCompactList}\small\item\em Reads the problem from a file. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{class_problem_a638b88612404e17ba5d0f3fb3043ef29}{parse\+\_\+points}} (vector$<$ string $>$ \mbox{\hyperlink{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}{lines}}, int \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\+\_\+points}})
+\begin{DoxyCompactList}\small\item\em Parses the points of the problem. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{class_problem_ac416b3bf669fe47b5eb4dd019b4993bd}{compute\+\_\+distance\+\_\+matrix}} (vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{class_problem_a8a42a31786773406a15fadde10c45dce}{points}}, int \mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\+\_\+points}})
+\begin{DoxyCompactList}\small\item\em Compute the distance matrix. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{class_problem_af882337719efa237fbe29533fda4465f}{check\+\_\+optimal\+\_\+tour}} ()
+\begin{DoxyCompactList}\small\item\em Parses the optimal tour. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_problem_ae6ad2cecaf98600a993538dddd1e6395}\label{class_problem_ae6ad2cecaf98600a993538dddd1e6395}} 
+\index{Problem@{Problem}!Problem@{Problem}}
+\index{Problem@{Problem}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{Problem()}{Problem()}}
+{\footnotesize\ttfamily Problem\+::\+Problem (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Contructor of the \mbox{\hyperlink{class_problem}{Problem}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_problem_af882337719efa237fbe29533fda4465f}\label{class_problem_af882337719efa237fbe29533fda4465f}} 
+\index{Problem@{Problem}!check\_optimal\_tour@{check\_optimal\_tour}}
+\index{check\_optimal\_tour@{check\_optimal\_tour}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{check\_optimal\_tour()}{check\_optimal\_tour()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Problem\+::check\+\_\+optimal\+\_\+tour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Parses the optimal tour. 
+
+\begin{DoxyReturn}{Returns}
+A vector containing the optimal tour 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_problem_ac416b3bf669fe47b5eb4dd019b4993bd}\label{class_problem_ac416b3bf669fe47b5eb4dd019b4993bd}} 
+\index{Problem@{Problem}!compute\_distance\_matrix@{compute\_distance\_matrix}}
+\index{compute\_distance\_matrix@{compute\_distance\_matrix}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{compute\_distance\_matrix()}{compute\_distance\_matrix()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ float $>$ $>$ Problem\+::compute\+\_\+distance\+\_\+matrix (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ float $>$ $>$}]{points,  }\item[{int}]{n\+\_\+points }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Compute the distance matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & The points of the problem \\
+\hline
+{\em n\+\_\+points} & The total number of points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A matrix containing the distance matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_problem_a638b88612404e17ba5d0f3fb3043ef29}\label{class_problem_a638b88612404e17ba5d0f3fb3043ef29}} 
+\index{Problem@{Problem}!parse\_points@{parse\_points}}
+\index{parse\_points@{parse\_points}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{parse\_points()}{parse\_points()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ float $>$ $>$ Problem\+::parse\+\_\+points (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{lines,  }\item[{int}]{n\+\_\+points }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Parses the points of the problem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lines} & The lines of the file \\
+\hline
+{\em n\+\_\+points} & The total number of points \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A matrix containing the points 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_problem_af0ecbe4e398524b72bf141540a24673e}\label{class_problem_af0ecbe4e398524b72bf141540a24673e}} 
+\index{Problem@{Problem}!print\_info@{print\_info}}
+\index{print\_info@{print\_info}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{print\_info()}{print\_info()}}
+{\footnotesize\ttfamily void Problem\+::print\+\_\+info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the problem info. 
+
+\mbox{\Hypertarget{class_problem_a97d7796de03814d46dfb57e3df8b5b93}\label{class_problem_a97d7796de03814d46dfb57e3df8b5b93}} 
+\index{Problem@{Problem}!read\_file@{read\_file}}
+\index{read\_file@{read\_file}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Problem\+::read\+\_\+file (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Reads the problem from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings containing the lines of the file 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_problem_af3193cc8a695b81d530576dc888ed3ab}\label{class_problem_af3193cc8a695b81d530576dc888ed3ab}} 
+\index{Problem@{Problem}!best\_solution\_len@{best\_solution\_len}}
+\index{best\_solution\_len@{best\_solution\_len}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{best\_solution\_len}{best\_solution\_len}}
+{\footnotesize\ttfamily float Problem\+::best\+\_\+solution\+\_\+len}
+
+\mbox{\Hypertarget{class_problem_a5ec55102764ab6dc32c3a4a938886202}\label{class_problem_a5ec55102764ab6dc32c3a4a938886202}} 
+\index{Problem@{Problem}!distance\_matrix@{distance\_matrix}}
+\index{distance\_matrix@{distance\_matrix}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{distance\_matrix}{distance\_matrix}}
+{\footnotesize\ttfamily vector$<$vector$<$float$>$ $>$ Problem\+::distance\+\_\+matrix}
+
+\mbox{\Hypertarget{class_problem_ae55cae2db01283e56a65c2f0c51464a6}\label{class_problem_ae55cae2db01283e56a65c2f0c51464a6}} 
+\index{Problem@{Problem}!exists\_optimal@{exists\_optimal}}
+\index{exists\_optimal@{exists\_optimal}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{exists\_optimal}{exists\_optimal}}
+{\footnotesize\ttfamily bool Problem\+::exists\+\_\+optimal = false}
+
+\mbox{\Hypertarget{class_problem_aefa9e69bbf3bbce73476f3828beed691}\label{class_problem_aefa9e69bbf3bbce73476f3828beed691}} 
+\index{Problem@{Problem}!filename@{filename}}
+\index{filename@{filename}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily string Problem\+::filename}
+
+\mbox{\Hypertarget{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}\label{class_problem_add2fbcffdb68e219fa06012a6a03dcf3}} 
+\index{Problem@{Problem}!lines@{lines}}
+\index{lines@{lines}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{lines}{lines}}
+{\footnotesize\ttfamily vector$<$string$>$ Problem\+::lines}
+
+\mbox{\Hypertarget{class_problem_a856769ab45ea3c13904cf1d1b98d4036}\label{class_problem_a856769ab45ea3c13904cf1d1b98d4036}} 
+\index{Problem@{Problem}!n\_points@{n\_points}}
+\index{n\_points@{n\_points}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{n\_points}{n\_points}}
+{\footnotesize\ttfamily int Problem\+::n\+\_\+points}
+
+\mbox{\Hypertarget{class_problem_aa75cbf074e7da3ba6ae2d6f19be103e4}\label{class_problem_aa75cbf074e7da3ba6ae2d6f19be103e4}} 
+\index{Problem@{Problem}!name@{name}}
+\index{name@{name}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily string Problem\+::name}
+
+\mbox{\Hypertarget{class_problem_a956dbc7df30deb3e59064f73b800cbc6}\label{class_problem_a956dbc7df30deb3e59064f73b800cbc6}} 
+\index{Problem@{Problem}!optimal\_tour@{optimal\_tour}}
+\index{optimal\_tour@{optimal\_tour}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{optimal\_tour}{optimal\_tour}}
+{\footnotesize\ttfamily vector$<$int$>$ Problem\+::optimal\+\_\+tour}
+
+\mbox{\Hypertarget{class_problem_a8a42a31786773406a15fadde10c45dce}\label{class_problem_a8a42a31786773406a15fadde10c45dce}} 
+\index{Problem@{Problem}!points@{points}}
+\index{points@{points}!Problem@{Problem}}
+\doxysubsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily vector$<$vector$<$float$>$ $>$ Problem\+::points}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/classes/\mbox{\hyperlink{_problem_8hpp}{Problem.\+hpp}}\end{DoxyCompactItemize}

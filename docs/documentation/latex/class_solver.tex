@@ -1,0 +1,140 @@
+\hypertarget{class_solver}{}\doxysection{Solver Class Reference}
+\label{class_solver}\index{Solver@{Solver}}
+
+
+{\ttfamily \#include $<$Solver.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_solver_a3698e26aa5f9f46802cd20497ebe15f5}{Solver}} (\mbox{\hyperlink{class_problem}{Problem}} $\ast$\mbox{\hyperlink{class_solver_aa8b037e7af1ab903454067d6ec8db247}{problem}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_solver}{Solver}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ float $>$ \mbox{\hyperlink{class_solver_a7e72cb3ee667c90c2a1157dd60c4baa9}{compute\+\_\+solution}} ()
+\begin{DoxyCompactList}\small\item\em Solve the problem using the given algorithms. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_solver_a005d2bf6e5bae03bf9293f641180da36}{check\+\_\+validity}} (vector$<$ float $>$ \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}})
+\begin{DoxyCompactList}\small\item\em Check if the solution is valid. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_solver_a8efd9fcc201fff336e72d47c472a010a}{gap}} ()
+\begin{DoxyCompactList}\small\item\em Compute gap. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_solver_a841a9cf521dbac4a1701aa2c8bf8aa1b}{algo\+\_\+name}}
+\item 
+float \mbox{\hyperlink{class_solver_a31ee24377ece155a91350d2237955bdc}{duration}}
+\item 
+int \mbox{\hyperlink{class_solver_afc9c475eaca6568002ef8db66aaa73f9}{found\+\_\+length}}
+\item 
+\mbox{\hyperlink{class_problem}{Problem}} $\ast$ \mbox{\hyperlink{class_solver_aa8b037e7af1ab903454067d6ec8db247}{problem}}
+\item 
+vector$<$ float $>$ \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_solver_a3698e26aa5f9f46802cd20497ebe15f5}\label{class_solver_a3698e26aa5f9f46802cd20497ebe15f5}} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{Solver()}{Solver()}}
+{\footnotesize\ttfamily Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_solver}{Solver}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & The problem to solve \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_solver_a005d2bf6e5bae03bf9293f641180da36}\label{class_solver_a005d2bf6e5bae03bf9293f641180da36}} 
+\index{Solver@{Solver}!check\_validity@{check\_validity}}
+\index{check\_validity@{check\_validity}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{check\_validity()}{check\_validity()}}
+{\footnotesize\ttfamily bool Solver\+::check\+\_\+validity (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{solution }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Check if the solution is valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & The solution vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the solution is valid 
+
+false If the solution is not valid 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_solver_a7e72cb3ee667c90c2a1157dd60c4baa9}\label{class_solver_a7e72cb3ee667c90c2a1157dd60c4baa9}} 
+\index{Solver@{Solver}!compute\_solution@{compute\_solution}}
+\index{compute\_solution@{compute\_solution}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{compute\_solution()}{compute\_solution()}}
+{\footnotesize\ttfamily vector$<$ float $>$ Solver\+::compute\+\_\+solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Solve the problem using the given algorithms. 
+
+\begin{DoxyReturn}{Returns}
+The solution vector of the problem 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_solver_a8efd9fcc201fff336e72d47c472a010a}\label{class_solver_a8efd9fcc201fff336e72d47c472a010a}} 
+\index{Solver@{Solver}!gap@{gap}}
+\index{gap@{gap}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{gap()}{gap()}}
+{\footnotesize\ttfamily float Solver\+::gap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Compute gap. 
+
+Compute the gap between the best known solution and the solution from the current algorithm.
+
+\begin{DoxyReturn}{Returns}
+The gap 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_solver_a841a9cf521dbac4a1701aa2c8bf8aa1b}\label{class_solver_a841a9cf521dbac4a1701aa2c8bf8aa1b}} 
+\index{Solver@{Solver}!algo\_name@{algo\_name}}
+\index{algo\_name@{algo\_name}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{algo\_name}{algo\_name}}
+{\footnotesize\ttfamily int Solver\+::algo\+\_\+name\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_solver_a31ee24377ece155a91350d2237955bdc}\label{class_solver_a31ee24377ece155a91350d2237955bdc}} 
+\index{Solver@{Solver}!duration@{duration}}
+\index{duration@{duration}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily float Solver\+::duration\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_solver_afc9c475eaca6568002ef8db66aaa73f9}\label{class_solver_afc9c475eaca6568002ef8db66aaa73f9}} 
+\index{Solver@{Solver}!found\_length@{found\_length}}
+\index{found\_length@{found\_length}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{found\_length}{found\_length}}
+{\footnotesize\ttfamily int Solver\+::found\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_solver_aa8b037e7af1ab903454067d6ec8db247}\label{class_solver_aa8b037e7af1ab903454067d6ec8db247}} 
+\index{Solver@{Solver}!problem@{problem}}
+\index{problem@{problem}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{problem}{problem}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_problem}{Problem}}$\ast$ Solver\+::problem\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}\label{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}} 
+\index{Solver@{Solver}!solution@{solution}}
+\index{solution@{solution}!Solver@{Solver}}
+\doxysubsubsection{\texorpdfstring{solution}{solution}}
+{\footnotesize\ttfamily vector$<$float$>$ Solver\+::solution\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/classes/\mbox{\hyperlink{_solver_8hpp}{Solver.\+hpp}}\end{DoxyCompactItemize}

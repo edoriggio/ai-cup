@@ -1,0 +1,57 @@
+\hypertarget{nearest__neighbors_8hpp}{}\doxysection{src/solvers/nearest\+\_\+neighbors.hpp File Reference}
+\label{nearest__neighbors_8hpp}\index{src/solvers/nearest\_neighbors.hpp@{src/solvers/nearest\_neighbors.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ float $>$ \mbox{\hyperlink{nearest__neighbors_8hpp_a5053225e1232f1bfeb658e4849ea7c4c}{nearest\+\_\+neighbors}} (\mbox{\hyperlink{class_problem}{Problem}} $\ast$problem, vector$<$ bool $>$ \&visited, int start=0)
+\begin{DoxyCompactList}\small\item\em Nearest neighbors. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \mbox{\hyperlink{nearest__neighbors_8hpp_a6186e4b7dbe53fc1f627b595284aafed}{best\+\_\+nearest\+\_\+neighbors}} (\mbox{\hyperlink{class_problem}{Problem}} $\ast$problem)
+\begin{DoxyCompactList}\small\item\em Best nearest neighbors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nearest__neighbors_8hpp_a6186e4b7dbe53fc1f627b595284aafed}\label{nearest__neighbors_8hpp_a6186e4b7dbe53fc1f627b595284aafed}} 
+\index{nearest\_neighbors.hpp@{nearest\_neighbors.hpp}!best\_nearest\_neighbors@{best\_nearest\_neighbors}}
+\index{best\_nearest\_neighbors@{best\_nearest\_neighbors}!nearest\_neighbors.hpp@{nearest\_neighbors.hpp}}
+\doxysubsubsection{\texorpdfstring{best\_nearest\_neighbors()}{best\_nearest\_neighbors()}}
+{\footnotesize\ttfamily vector$<$ float $>$ best\+\_\+nearest\+\_\+neighbors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})}
+
+
+
+Best nearest neighbors. 
+
+The best nearest neighbors algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & The problem to solve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nearest__neighbors_8hpp_a5053225e1232f1bfeb658e4849ea7c4c}\label{nearest__neighbors_8hpp_a5053225e1232f1bfeb658e4849ea7c4c}} 
+\index{nearest\_neighbors.hpp@{nearest\_neighbors.hpp}!nearest\_neighbors@{nearest\_neighbors}}
+\index{nearest\_neighbors@{nearest\_neighbors}!nearest\_neighbors.hpp@{nearest\_neighbors.hpp}}
+\doxysubsubsection{\texorpdfstring{nearest\_neighbors()}{nearest\_neighbors()}}
+{\footnotesize\ttfamily vector$<$ float $>$ nearest\+\_\+neighbors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem,  }\item[{vector$<$ bool $>$ \&}]{visited,  }\item[{int}]{start = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Nearest neighbors. 
+
+The nearest neighbors algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em problem} & The problem to solve \\
+\hline
+{\em visited} & The visited nodes \\
+\hline
+{\em start} & The starting node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The solution 
+\end{DoxyReturn}

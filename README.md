@@ -1,5 +1,7 @@
 # USI 16th Edition AI Cup
 
+This repo represents my submission for the 2021 AI Cup. More information about how I solved the Cup can be found in the [docs](https://github.com/edoriggio/ai-cup/tree/main/docs) directory.
+
 ## How to run
 
 In order to start the TSP-solver, you need to run the following command inside of the root directory of the project:

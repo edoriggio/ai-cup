@@ -1,0 +1,59 @@
+\hypertarget{two__opt_8hpp_source}{}\doxysection{two\+\_\+opt.\+hpp}
+\label{two__opt_8hpp_source}\index{src/solvers/two\_opt.hpp@{src/solvers/two\_opt.hpp}}
+\mbox{\hyperlink{two__opt_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{17 tuple<vector<float>, \textcolor{keywordtype}{int}> \mbox{\hyperlink{two__opt_8hpp_a2714d06dfc397ecb8491e7a00b370701}{two\_opt\_step}}(vector<float> solution, \mbox{\hyperlink{class_problem}{Problem}} * problem) \{}
+\DoxyCodeLine{18   \textcolor{keywordtype}{int} gain = 0;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordtype}{int} best\_i = 1;}
+\DoxyCodeLine{21   \textcolor{keywordtype}{int} best\_j = 2;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keywordtype}{bool} swapped = \textcolor{keyword}{false};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   vector<float> new\_solution = solution;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < solution.size()-\/2; i++) \{}
+\DoxyCodeLine{28     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i+1; j < solution.size()-\/1; j++) \{}
+\DoxyCodeLine{29       \textcolor{keywordtype}{int} old\_link\_len = problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[new\_solution[i]][new\_solution[i-\/1]]}
+\DoxyCodeLine{30                          + problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[new\_solution[j]][new\_solution[j+1]];}
+\DoxyCodeLine{31       \textcolor{keywordtype}{int} new\_link\_len = problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[new\_solution[j]][new\_solution[i-\/1]]}
+\DoxyCodeLine{32                          + problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[new\_solution[i]][new\_solution[j+1]];}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34       \textcolor{keywordtype}{int} gain\_value = -\/ old\_link\_len + new\_link\_len;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36       \textcolor{keywordflow}{if} (gain\_value < gain) \{}
+\DoxyCodeLine{37         best\_i = i;}
+\DoxyCodeLine{38         best\_j = j;}
+\DoxyCodeLine{39         swapped = \textcolor{keyword}{true};}
+\DoxyCodeLine{40         gain = gain\_value;}
+\DoxyCodeLine{41       \}}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43   \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   reverse(new\_solution.begin() + best\_i, new\_solution.begin() + best\_j + 1);}
+\DoxyCodeLine{46   }
+\DoxyCodeLine{47   \textcolor{keywordflow}{return} make\_tuple(new\_solution, swapped);}
+\DoxyCodeLine{48 \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{60 vector<float> \mbox{\hyperlink{two__opt_8hpp_aabac6a655d370d5e515142419133b1a2}{two\_opt}}(vector<float> solution, \mbox{\hyperlink{class_problem}{Problem}} * problem) \{}
+\DoxyCodeLine{61   \textcolor{keywordtype}{bool} swapping = \textcolor{keyword}{true};}
+\DoxyCodeLine{62   vector<float> new\_solution = solution;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \textcolor{keywordflow}{while} (swapping) \{}
+\DoxyCodeLine{65     \textcolor{keyword}{auto} res = \mbox{\hyperlink{two__opt_8hpp_a2714d06dfc397ecb8491e7a00b370701}{two\_opt\_step}}(new\_solution, problem);}
+\DoxyCodeLine{66     new\_solution = get<0>(res);}
+\DoxyCodeLine{67     swapping = get<1>(res);}
+\DoxyCodeLine{68   \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \textcolor{keywordflow}{return} new\_solution;}
+\DoxyCodeLine{71 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,59 @@
+\hypertarget{two__dot__five__opt_8hpp}{}\doxysection{src/solvers/two\+\_\+dot\+\_\+five\+\_\+opt.hpp File Reference}
+\label{two__dot__five__opt_8hpp}\index{src/solvers/two\_dot\_five\_opt.hpp@{src/solvers/two\_dot\_five\_opt.hpp}}
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ vector$<$ float $>$, int $>$ \mbox{\hyperlink{two__dot__five__opt_8hpp_acce47a3218eca14c7410f18b87df264c}{two\+\_\+dot\+\_\+five\+\_\+opt\+\_\+step}} (vector$<$ float $>$ solution, \mbox{\hyperlink{class_problem}{Problem}} $\ast$problem)
+\begin{DoxyCompactList}\small\item\em Two-\/dot-\/five-\/opt algorithm step. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \mbox{\hyperlink{two__dot__five__opt_8hpp_a2e2e0b84500af15d06d5aba1771d0714}{two\+\_\+dot\+\_\+five\+\_\+opt}} (vector$<$ float $>$ solution, \mbox{\hyperlink{class_problem}{Problem}} $\ast$problem)
+\begin{DoxyCompactList}\small\item\em Two-\/dot-\/five-\/opt algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{two__dot__five__opt_8hpp_a2e2e0b84500af15d06d5aba1771d0714}\label{two__dot__five__opt_8hpp_a2e2e0b84500af15d06d5aba1771d0714}} 
+\index{two\_dot\_five\_opt.hpp@{two\_dot\_five\_opt.hpp}!two\_dot\_five\_opt@{two\_dot\_five\_opt}}
+\index{two\_dot\_five\_opt@{two\_dot\_five\_opt}!two\_dot\_five\_opt.hpp@{two\_dot\_five\_opt.hpp}}
+\doxysubsubsection{\texorpdfstring{two\_dot\_five\_opt()}{two\_dot\_five\_opt()}}
+{\footnotesize\ttfamily vector$<$ float $>$ two\+\_\+dot\+\_\+five\+\_\+opt (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{solution,  }\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})}
+
+
+
+Two-\/dot-\/five-\/opt algorithm. 
+
+Perform the two-\/dot-\/five-\/opt algorithm on a solution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & Solution to be optimized \\
+\hline
+{\em problem} & \mbox{\hyperlink{class_problem}{Problem}} to be solved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The optimized solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{two__dot__five__opt_8hpp_acce47a3218eca14c7410f18b87df264c}\label{two__dot__five__opt_8hpp_acce47a3218eca14c7410f18b87df264c}} 
+\index{two\_dot\_five\_opt.hpp@{two\_dot\_five\_opt.hpp}!two\_dot\_five\_opt\_step@{two\_dot\_five\_opt\_step}}
+\index{two\_dot\_five\_opt\_step@{two\_dot\_five\_opt\_step}!two\_dot\_five\_opt.hpp@{two\_dot\_five\_opt.hpp}}
+\doxysubsubsection{\texorpdfstring{two\_dot\_five\_opt\_step()}{two\_dot\_five\_opt\_step()}}
+{\footnotesize\ttfamily tuple$<$ vector$<$ float $>$, int $>$ two\+\_\+dot\+\_\+five\+\_\+opt\+\_\+step (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{solution,  }\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})}
+
+
+
+Two-\/dot-\/five-\/opt algorithm step. 
+
+Perform a single step of the two-\/dot-\/five-\/opt algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & Solution to be optimized \\
+\hline
+{\em problem} & \mbox{\hyperlink{class_problem}{Problem}} to be solved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tuple containing the new solution and the total gain 
+\end{DoxyReturn}

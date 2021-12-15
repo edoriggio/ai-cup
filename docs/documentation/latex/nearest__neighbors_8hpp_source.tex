@@ -1,0 +1,59 @@
+\hypertarget{nearest__neighbors_8hpp_source}{}\doxysection{nearest\+\_\+neighbors.\+hpp}
+\label{nearest__neighbors_8hpp_source}\index{src/solvers/nearest\_neighbors.hpp@{src/solvers/nearest\_neighbors.hpp}}
+\mbox{\hyperlink{nearest__neighbors_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{16 vector<float> \mbox{\hyperlink{nearest__neighbors_8hpp_a5053225e1232f1bfeb658e4849ea7c4c}{nearest\_neighbors}}(\mbox{\hyperlink{class_problem}{Problem}} * problem, vector<bool> \& visited, \textcolor{keywordtype}{int} start=0) \{}
+\DoxyCodeLine{17   vector<float> result;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   result.push\_back(start);}
+\DoxyCodeLine{20   visited[start] = \textcolor{keyword}{true};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}-\/1; i++) \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} min\_dist = INFINITY;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{float} min\_dist\_idx = 0;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}; j++) \{}
+\DoxyCodeLine{27       \textcolor{keywordflow}{if} (i == j) \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29       \textcolor{keywordtype}{float} dist = problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}}[result[result.size()-\/1]][j];}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31       \textcolor{keywordflow}{if} (dist < min\_dist \&\& !visited[j]) \{}
+\DoxyCodeLine{32         min\_dist = dist;}
+\DoxyCodeLine{33         min\_dist\_idx = j;}
+\DoxyCodeLine{34       \}}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     visited[min\_dist\_idx] = \textcolor{keyword}{true};}
+\DoxyCodeLine{38     result.push\_back(min\_dist\_idx);}
+\DoxyCodeLine{39   \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{42 \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{53 vector<float> \mbox{\hyperlink{nearest__neighbors_8hpp_a6186e4b7dbe53fc1f627b595284aafed}{best\_nearest\_neighbors}}(\mbox{\hyperlink{class_problem}{Problem}} * problem) \{}
+\DoxyCodeLine{54   vector<float> result;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{keywordtype}{float} min\_length = INFINITY;}
+\DoxyCodeLine{57   }
+\DoxyCodeLine{58   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}; i++) \{}
+\DoxyCodeLine{59     vector<bool> visited(problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}, \textcolor{keyword}{false});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     vector<float> temp = \mbox{\hyperlink{nearest__neighbors_8hpp_a5053225e1232f1bfeb658e4849ea7c4c}{nearest\_neighbors}}(problem, visited, i);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} curr\_len = \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}}(temp, problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}});}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} (curr\_len < min\_length) \{}
+\DoxyCodeLine{65       result = temp;}
+\DoxyCodeLine{66       min\_length = curr\_len;}
+\DoxyCodeLine{67     \}}
+\DoxyCodeLine{68   \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{71 \}}
+
+\end{DoxyCode}

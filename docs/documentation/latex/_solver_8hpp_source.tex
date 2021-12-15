@@ -1,0 +1,87 @@
+\hypertarget{_solver_8hpp_source}{}\doxysection{Solver.\+hpp}
+\label{_solver_8hpp_source}\index{src/classes/Solver.hpp@{src/classes/Solver.hpp}}
+\mbox{\hyperlink{_solver_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../utils/length.hpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}../utils/check\_in.hpp"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../solvers/two\_opt.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../solvers/two\_dot\_five\_opt.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../solvers/nearest\_neighbors.hpp"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef SOLVER\_HPP}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define SOLVER\_HPP}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_solver}{Solver}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_solver_a841a9cf521dbac4a1701aa2c8bf8aa1b}{algo\_name}};}
+\DoxyCodeLine{20   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_solver_a31ee24377ece155a91350d2237955bdc}{duration}};}
+\DoxyCodeLine{21   \textcolor{keywordtype}{int} \mbox{\hyperlink{class_solver_afc9c475eaca6568002ef8db66aaa73f9}{found\_length}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \mbox{\hyperlink{class_problem}{Problem}} * \mbox{\hyperlink{class_solver_aa8b037e7af1ab903454067d6ec8db247}{problem}};}
+\DoxyCodeLine{24   vector<float> \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32   vector<float> \mbox{\hyperlink{class_solver_a7e72cb3ee667c90c2a1157dd60c4baa9}{compute\_solution}}() \{}
+\DoxyCodeLine{33     clock\_t start = clock();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     cout << endl;}
+\DoxyCodeLine{36     cout << \textcolor{stringliteral}{"{}\#\#\# Solving problem with ['best\_nearest\_neighbors', 'two\_dot\_five\_opt'] \#\#\#"{}} << endl;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     vector<float> \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}} = \mbox{\hyperlink{nearest__neighbors_8hpp_a6186e4b7dbe53fc1f627b595284aafed}{best\_nearest\_neighbors}}(this-\/>problem);}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}} = \mbox{\hyperlink{two__dot__five__opt_8hpp_a2e2e0b84500af15d06d5aba1771d0714}{two\_dot\_five\_opt}}(\mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}}, this-\/>problem);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_solver_a005d2bf6e5bae03bf9293f641180da36}{check\_validity}}(\mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}})) \{}
+\DoxyCodeLine{42       cout << \textcolor{stringliteral}{"{}ERROR: Solution is not valid"{}} << endl;}
+\DoxyCodeLine{43       exit(1);}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     this-\/>duration = (clock() -\/ start) / (\textcolor{keywordtype}{double}) CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{47     this-\/>found\_length = \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}}(\mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}}, this-\/>problem-\/>\mbox{\hyperlink{class_problem_a5ec55102764ab6dc32c3a4a938886202}{distance\_matrix}});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     cout << \textcolor{stringliteral}{"{}Solution found in "{}} << this-\/>duration << \textcolor{stringliteral}{"{} seconds"{}} << endl;}
+\DoxyCodeLine{50     cout << \textcolor{stringliteral}{"{}Legnth of solution: "{}} << this-\/>found\_length << endl;}
+\DoxyCodeLine{51     cout << \textcolor{stringliteral}{"{}Gap between solutions: "{}} << fixed << setprecision(2) << this-\/>\mbox{\hyperlink{class_solver_a8efd9fcc201fff336e72d47c472a010a}{gap}}() << \textcolor{stringliteral}{"{}\%"{}} << endl; }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}};}
+\DoxyCodeLine{54   \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{64   \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_solver_a005d2bf6e5bae03bf9293f641180da36}{check\_validity}}(vector<float> \mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}}) \{}
+\DoxyCodeLine{65     \textcolor{keywordtype}{int} sum = 0;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this-\/>problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}}; i++) \{}
+\DoxyCodeLine{68       \textcolor{keywordflow}{if} (\mbox{\hyperlink{check__in_8hpp_ab55524690d4ae7eeaac64651f2562026}{check\_in}}(\mbox{\hyperlink{class_solver_ad1a90a6befd74c6c041ee4ddc0f6058c}{solution}}, i)) sum += 1;}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordflow}{return} sum == this-\/>problem-\/>\mbox{\hyperlink{class_problem_a856769ab45ea3c13904cf1d1b98d4036}{n\_points}};}
+\DoxyCodeLine{72   \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 }
+\DoxyCodeLine{83   \textcolor{keywordtype}{float} \mbox{\hyperlink{class_solver_a8efd9fcc201fff336e72d47c472a010a}{gap}}() \{}
+\DoxyCodeLine{84     \textcolor{keywordtype}{float} num = this-\/>found\_length -\/ this-\/>problem-\/>\mbox{\hyperlink{class_problem_af3193cc8a695b81d530576dc888ed3ab}{best\_solution\_len}};}
+\DoxyCodeLine{85     \textcolor{keywordtype}{float} den = this-\/>problem-\/>\mbox{\hyperlink{class_problem_af3193cc8a695b81d530576dc888ed3ab}{best\_solution\_len}};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} (num / den) * 100.0;}
+\DoxyCodeLine{88   \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{public}:}
+\DoxyCodeLine{97   \mbox{\hyperlink{class_solver_a3698e26aa5f9f46802cd20497ebe15f5}{Solver}}(\mbox{\hyperlink{class_problem}{Problem}} * \mbox{\hyperlink{class_solver_aa8b037e7af1ab903454067d6ec8db247}{problem}}) \{}
+\DoxyCodeLine{98     this-\/>duration = 0;}
+\DoxyCodeLine{99     this-\/>found\_length = 0;}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     this-\/>problem = \mbox{\hyperlink{class_solver_aa8b037e7af1ab903454067d6ec8db247}{problem}};}
+\DoxyCodeLine{102     this-\/>solution = \mbox{\hyperlink{class_solver_a7e72cb3ee667c90c2a1157dd60c4baa9}{compute\_solution}}();}
+\DoxyCodeLine{103   \}}
+\DoxyCodeLine{104 \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SOLVER\_HPP}}
+
+\end{DoxyCode}

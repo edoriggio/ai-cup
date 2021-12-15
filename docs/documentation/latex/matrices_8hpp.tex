@@ -1,0 +1,51 @@
+\hypertarget{matrices_8hpp}{}\doxysection{src/utils/matrices.hpp File Reference}
+\label{matrices_8hpp}\index{src/utils/matrices.hpp@{src/utils/matrices.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{matrices_8hpp_a7ab09214a67aa35b24e276ea3a3e2620}{m\+\_\+transpose}} (vector$<$ vector$<$ float $>$ $>$ b)
+\begin{DoxyCompactList}\small\item\em Computes the transpose of a matrix. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ float $>$ $>$ \mbox{\hyperlink{matrices_8hpp_a8d03a4b7f773ecb71760631052951830}{m\+\_\+sum}} (vector$<$ vector$<$ float $>$ $>$ a, vector$<$ vector$<$ float $>$ $>$ b)
+\begin{DoxyCompactList}\small\item\em Compute the sum of two matrices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{matrices_8hpp_a8d03a4b7f773ecb71760631052951830}\label{matrices_8hpp_a8d03a4b7f773ecb71760631052951830}} 
+\index{matrices.hpp@{matrices.hpp}!m\_sum@{m\_sum}}
+\index{m\_sum@{m\_sum}!matrices.hpp@{matrices.hpp}}
+\doxysubsubsection{\texorpdfstring{m\_sum()}{m\_sum()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ float $>$ $>$ m\+\_\+sum (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ float $>$ $>$}]{a,  }\item[{vector$<$ vector$<$ float $>$ $>$}]{b }\end{DoxyParamCaption})}
+
+
+
+Compute the sum of two matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first matrix \\
+\hline
+{\em b} & The second matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting matrix 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrices_8hpp_a7ab09214a67aa35b24e276ea3a3e2620}\label{matrices_8hpp_a7ab09214a67aa35b24e276ea3a3e2620}} 
+\index{matrices.hpp@{matrices.hpp}!m\_transpose@{m\_transpose}}
+\index{m\_transpose@{m\_transpose}!matrices.hpp@{matrices.hpp}}
+\doxysubsubsection{\texorpdfstring{m\_transpose()}{m\_transpose()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ float $>$ $>$ m\+\_\+transpose (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ float $>$ $>$}]{b }\end{DoxyParamCaption})}
+
+
+
+Computes the transpose of a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The matrix to transpose \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The transposed matrix 
+\end{DoxyReturn}

@@ -1,0 +1,30 @@
+\hypertarget{split_8hpp_source}{}\doxysection{split.\+hpp}
+\label{split_8hpp_source}\index{src/utils/split.hpp@{src/utils/split.hpp}}
+\mbox{\hyperlink{split_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{15 vector<string> \mbox{\hyperlink{split_8hpp_a491ed1aa6d59db88f7078a4c02abb1f9}{split}}(\textcolor{keywordtype}{string} s, \textcolor{keywordtype}{string} delimiter) \{}
+\DoxyCodeLine{16   \textcolor{keywordtype}{size\_t} pos\_end;}
+\DoxyCodeLine{17   \textcolor{keywordtype}{size\_t} pos\_start = 0;}
+\DoxyCodeLine{18   \textcolor{keywordtype}{size\_t} delim\_len = delimiter.length();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordtype}{string} token;}
+\DoxyCodeLine{21   vector<string> res;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keywordflow}{while} ((pos\_end = s.find (delimiter, pos\_start)) != string::npos) \{}
+\DoxyCodeLine{24     token = s.substr (pos\_start, pos\_end -\/ pos\_start);}
+\DoxyCodeLine{25     pos\_start = pos\_end + delim\_len;}
+\DoxyCodeLine{26     res.push\_back (token);}
+\DoxyCodeLine{27   \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   res.push\_back (s.substr (pos\_start));}
+\DoxyCodeLine{30   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}

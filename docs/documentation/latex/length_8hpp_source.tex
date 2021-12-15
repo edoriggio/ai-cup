@@ -1,0 +1,26 @@
+\hypertarget{length_8hpp_source}{}\doxysection{length.\+hpp}
+\label{length_8hpp_source}\index{src/utils/length.hpp@{src/utils/length.hpp}}
+\mbox{\hyperlink{length_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{15 \textcolor{keywordtype}{int} \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}}(vector<float> solution, vector<vector<float> > distance\_matrix) \{}
+\DoxyCodeLine{16   \textcolor{keywordtype}{int} \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}} = 0;}
+\DoxyCodeLine{17   \textcolor{keywordtype}{int} starting\_node = solution[0];}
+\DoxyCodeLine{18   \textcolor{keywordtype}{int} from\_node = starting\_node;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < solution.size(); i++) \{}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} to\_node = solution[i];}
+\DoxyCodeLine{22     \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}} += distance\_matrix[from\_node][to\_node];}
+\DoxyCodeLine{23     from\_node = to\_node;}
+\DoxyCodeLine{24   \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}} += distance\_matrix[starting\_node][from\_node];}
+\DoxyCodeLine{27   }
+\DoxyCodeLine{28   \textcolor{keywordflow}{return} \mbox{\hyperlink{length_8hpp_af940355d748afaf506f5e330ad67279c}{length}};}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}

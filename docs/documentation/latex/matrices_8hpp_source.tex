@@ -1,0 +1,39 @@
+\hypertarget{matrices_8hpp_source}{}\doxysection{matrices.\+hpp}
+\label{matrices_8hpp_source}\index{src/utils/matrices.hpp@{src/utils/matrices.hpp}}
+\mbox{\hyperlink{matrices_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{12 vector<vector<float> > \mbox{\hyperlink{matrices_8hpp_a7ab09214a67aa35b24e276ea3a3e2620}{m\_transpose}}(vector<vector<float> > b) \{}
+\DoxyCodeLine{13     vector<vector<float> > trans\_vec(b[0].size(), vector<float>(b[0].size()));}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < b.size(); i++) \{}
+\DoxyCodeLine{16       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < b[i].size(); j++) \{}
+\DoxyCodeLine{17         \textcolor{keywordflow}{if} (trans\_vec[j].size() != b.size()) \{}
+\DoxyCodeLine{18           trans\_vec[j].resize(b.size());}
+\DoxyCodeLine{19         \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         trans\_vec[j][i] = b[i][j];}
+\DoxyCodeLine{22       \}}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} trans\_vec;}
+\DoxyCodeLine{26 \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{36 vector<vector<float> > \mbox{\hyperlink{matrices_8hpp_a8d03a4b7f773ecb71760631052951830}{m\_sum}}(vector<vector<float> > a, vector<vector<float> > b) \{}
+\DoxyCodeLine{37   vector<vector<float> > result(a[0].size(), vector<float>(a[0].size()));}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < a.size(); i++) \{}
+\DoxyCodeLine{40     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < a[i].size(); j++) \{}
+\DoxyCodeLine{41       result[i][j] = a[i][j] + b[i][j];}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43   \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}

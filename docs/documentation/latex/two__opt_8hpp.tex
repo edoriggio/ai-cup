@@ -1,0 +1,59 @@
+\hypertarget{two__opt_8hpp}{}\doxysection{src/solvers/two\+\_\+opt.hpp File Reference}
+\label{two__opt_8hpp}\index{src/solvers/two\_opt.hpp@{src/solvers/two\_opt.hpp}}
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ vector$<$ float $>$, int $>$ \mbox{\hyperlink{two__opt_8hpp_a2714d06dfc397ecb8491e7a00b370701}{two\+\_\+opt\+\_\+step}} (vector$<$ float $>$ solution, \mbox{\hyperlink{class_problem}{Problem}} $\ast$problem)
+\begin{DoxyCompactList}\small\item\em Two-\/opt algorithm step. \end{DoxyCompactList}\item 
+vector$<$ float $>$ \mbox{\hyperlink{two__opt_8hpp_aabac6a655d370d5e515142419133b1a2}{two\+\_\+opt}} (vector$<$ float $>$ solution, \mbox{\hyperlink{class_problem}{Problem}} $\ast$problem)
+\begin{DoxyCompactList}\small\item\em Two-\/opt algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{two__opt_8hpp_aabac6a655d370d5e515142419133b1a2}\label{two__opt_8hpp_aabac6a655d370d5e515142419133b1a2}} 
+\index{two\_opt.hpp@{two\_opt.hpp}!two\_opt@{two\_opt}}
+\index{two\_opt@{two\_opt}!two\_opt.hpp@{two\_opt.hpp}}
+\doxysubsubsection{\texorpdfstring{two\_opt()}{two\_opt()}}
+{\footnotesize\ttfamily vector$<$ float $>$ two\+\_\+opt (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{solution,  }\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})}
+
+
+
+Two-\/opt algorithm. 
+
+Perform the two-\/opt algorithm on a solution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & Solution to be optimized \\
+\hline
+{\em problem} & \mbox{\hyperlink{class_problem}{Problem}} to be solved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The optimized solution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{two__opt_8hpp_a2714d06dfc397ecb8491e7a00b370701}\label{two__opt_8hpp_a2714d06dfc397ecb8491e7a00b370701}} 
+\index{two\_opt.hpp@{two\_opt.hpp}!two\_opt\_step@{two\_opt\_step}}
+\index{two\_opt\_step@{two\_opt\_step}!two\_opt.hpp@{two\_opt.hpp}}
+\doxysubsubsection{\texorpdfstring{two\_opt\_step()}{two\_opt\_step()}}
+{\footnotesize\ttfamily tuple$<$ vector$<$ float $>$, int $>$ two\+\_\+opt\+\_\+step (\begin{DoxyParamCaption}\item[{vector$<$ float $>$}]{solution,  }\item[{\mbox{\hyperlink{class_problem}{Problem}} $\ast$}]{problem }\end{DoxyParamCaption})}
+
+
+
+Two-\/opt algorithm step. 
+
+Perform a single step of the two-\/opt algorithm.
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & Solution to be optimized \\
+\hline
+{\em problem} & \mbox{\hyperlink{class_problem}{Problem}} to be solved \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tuple containing the new solution and the total gain 
+\end{DoxyReturn}
