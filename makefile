@@ -29,7 +29,7 @@ docs: .FORCE
 	@echo " Generating docs..."
 	@echo " doxygen ./doxyfile.conf"; doxygen ./doxyfile.conf
 	@echo " Generating pdf..."
-	@echo " make >/dev/null"; cd docs/documentation/latex; make; mv refman.pdf ../docs.pdf; cd -
+	@echo " make"; cd docs/documentation/latex; make; mv refman.pdf ../../documentation.pdf; cd -
 
 html: .FORCE
 	@echo " Opening html..."
