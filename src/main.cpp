@@ -1,7 +1,7 @@
 #include <vector>
 
-#include "./classes/Problem.hpp"
 #include "./classes/Solver.hpp"
+#include "./classes/Problem.hpp"
 
 using namespace std;
 
