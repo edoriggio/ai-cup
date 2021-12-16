@@ -1,5 +1,10 @@
+#ifndef SOLVER_HPP
+#define SOLVER_HPP
+
 #include <ctime>
 #include <vector>
+
+#include "./Problem.hpp"
 
 #include "../utils/length.hpp"
 #include "../utils/check_in.hpp"
@@ -8,11 +13,8 @@
 #include "../solvers/two_dot_five_opt.hpp"
 #include "../solvers/nearest_neighbors.hpp"
 
-
 using namespace std;
 
-#ifndef SOLVER_HPP
-#define SOLVER_HPP
 
 class Solver {
 private:

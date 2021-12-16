@@ -1,3 +1,6 @@
+#ifndef PROBLEM_HPP
+#define PROBLEM_HPP
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -9,8 +12,6 @@
 
 using namespace std;
 
-#ifndef PROBLEM_HPP
-#define PROBLEM_HPP
 
 class Problem {
 public:
